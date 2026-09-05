@@ -6,7 +6,7 @@ ApplicationWindow {
     width: 640
     height: 480
     visible: true
-    title: qsTr("SpinBox")
+    title: qsTr("Switch Control")
     palette.windowText: "white"
     color: "black"
     Switch {
