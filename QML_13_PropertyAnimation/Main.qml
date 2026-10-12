@@ -10,6 +10,8 @@ ApplicationWindow {
     title: "QML Property Animation Example"
     visible: true
 
+    property int currentColorIndex: 1
+
     Rectangle {
         id: animatedRectangle
         width: 100
@@ -18,6 +20,10 @@ ApplicationWindow {
 
         x: 0
         y: 0
+
+        Behavior on color {
+            ColorAnimation { duration: 1000; easing.type: Easing.InOutQuad; }
+        }
     }
 
     PropertyAnimation {
@@ -43,5 +49,15 @@ ApplicationWindow {
         running: true
         NumberAnimation { target: animatedRectangle; property: "x"; from: 0; to: rootWindow.width - animatedRectangle.width; duration: 2000}
         NumberAnimation {target: animatedRectangle; property: "y"; from: 0; to: rootWindow.height - animatedRectangle.height; duration: 2000}
+    }
+
+    Timer {
+        interval: 1000
+        running: true
+        repeat: true
+        onTriggered: {
+            currentColorIndex = currentColorIndex === 1 ? 2 : 1
+            animatedRectangle.color = currentColorIndex === 1 ? "red" : "blue"
+        }
     }
 }
