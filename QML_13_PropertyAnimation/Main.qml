@@ -18,7 +18,6 @@ ApplicationWindow {
 
         x: 0
         y: 0
-        anchors.centerIn: parent
     }
 
     PropertyAnimation {
@@ -39,5 +38,10 @@ ApplicationWindow {
         PropertyAnimation { target: animatedRectangle; property: "scale"; from: 1.5; to: 1; duration: 1000}
         running: true
     }
-
+    ParallelAnimation {
+        loops: Animation.Infinite
+        running: true
+        NumberAnimation { target: animatedRectangle; property: "x"; from: 0; to: rootWindow.width - animatedRectangle.width; duration: 2000}
+        NumberAnimation {target: animatedRectangle; property: "y"; from: 0; to: rootWindow.height - animatedRectangle.height; duration: 2000}
+    }
 }
