@@ -26,5 +26,9 @@ ApplicationWindow {
             loops: Animation.Infinite
             duration: 1000
         }
+
+        Text {
+
+        }
     }
 }

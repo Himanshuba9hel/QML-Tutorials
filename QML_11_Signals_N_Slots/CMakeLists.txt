@@ -21,7 +21,7 @@ qt_add_executable(appQML_11_Signals_N_Slots
 qt_add_qml_module(appQML_11_Signals_N_Slots
     URI QML_11_Signals_N_Slots
     QML_FILES
-        Main.qml
+    main.qml
         SOURCES backend.h backend.cpp
 )
 
