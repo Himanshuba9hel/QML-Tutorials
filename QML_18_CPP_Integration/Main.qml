@@ -71,6 +71,7 @@ Window {
             onClicked: {
                 console.log(logTypeSelect.currentText);
             }
+
         }
     }
 }
