@@ -1,0 +1,8 @@
+<RCC>
+    <qresource>
+        <file>KDAB_04_Images.qml</file>
+        <file>KDAB_04_Images.qmlproject</file>
+        <file>border-diamonds.png</file>
+        <file>rocket.png</file>
+    </qresource>
+</RCC>
