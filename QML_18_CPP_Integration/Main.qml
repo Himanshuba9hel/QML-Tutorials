@@ -107,6 +107,7 @@ Window {
                     font.pixelSize: 14
                 }
             }
+
         }
     }
 }
