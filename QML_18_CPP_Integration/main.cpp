@@ -1,5 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include "logsfilter.h"
 
 int main(int argc, char *argv[])
 {

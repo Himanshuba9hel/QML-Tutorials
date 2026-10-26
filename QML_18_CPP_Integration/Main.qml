@@ -3,13 +3,23 @@ import QtQuick.Dialogs // file picking dialog window
 import QtQuick.Layouts // arrange items in UI
 import QtQuick.Controls // for things like buttons and dropdown list
 import QtQuick.Controls.Material
-
+import QML_18_CPP_Integration 1.0
 Window {
     id: root
     width: 700
     height: 500
     visible: true
     title: qsTr("Logs filter")
+
+    LogsFilter {
+        id: logsFilter1
+        filePath: ""
+    }
+    LogsFilter {
+        id: logsFilter2
+        filePath: "someValue"
+    }
+
 
     ColumnLayout {
         spacing: 12
@@ -26,6 +36,7 @@ Window {
             ColumnLayout {
                 spacing: 10
                 Layout.fillWidth: true
+
                 RowLayout {
                     Label {
                         text: "File: "
@@ -33,7 +44,7 @@ Window {
                     }
                     TextField {
                         id: selectedFileName
-                        text: "some file name"
+                        text: logsFilter1.fileName
                         readOnly: true
                         Layout.fillWidth: true
                     }
@@ -46,7 +57,7 @@ Window {
                         title: "Select a log file"
                         onAccepted: {
                             let filePath = fileDialog.selectedFile.toString();
-                            console.log(filePath);
+                            logsFilter1.filePath = filePath;
                         }
                     }
                 }
@@ -69,7 +80,32 @@ Window {
             Layout.alignment: Qt.AlignHCenter
             Material.background: Material.Yellow
             onClicked: {
-                console.log(logTypeSelect.currentText);
+                logsFilter1.searchLogs(logTypeSelect.currentText);
+            }
+        }
+
+        Rectangle {
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            color: "white"
+            border.color: "#b0bec5"
+            border.width: 1
+            radius: 8
+            clip: true
+
+            Flickable {
+                anchors.fill: parent
+                contentHeight: resultLogs.contentHeight
+                clip: true
+
+                TextEdit {
+                    id: resultLogs
+                    text: logsFilter1.filteredLogs
+                    wrapMode: TextArea.WordWrap
+                    readOnly: true
+                    padding: 10
+                    font.pixelSize: 14
+                }
             }
         }
     }
