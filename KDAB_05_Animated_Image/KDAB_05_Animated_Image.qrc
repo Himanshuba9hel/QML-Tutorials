@@ -1,0 +1,7 @@
+<RCC>
+    <qresource>
+        <file>KDAB_05_Animated_Image.qml</file>
+        <file>KDAB_05_Animated_Image.qmlproject</file>
+        <file>image-animated.gif</file>
+    </qresource>
+</RCC>
