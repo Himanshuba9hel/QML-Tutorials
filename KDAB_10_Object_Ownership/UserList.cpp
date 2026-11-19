@@ -40,7 +40,7 @@ QObject* UserList::userAt(int index) const
         return nullptr;
 
     // Uncomment line below to fix the crash
-    //QQmlEngine::setObjectOwnership(m_users[index], QQmlEngine::CppOwnership);
+    QQmlEngine::setObjectOwnership(m_users[index], QQmlEngine::CppOwnership);
 
     return m_users[index];
 }
